@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-message',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [],
+  templateUrl: './message.component.html',
+  styleUrl: './message.component.scss'
 })
-export class AppComponent implements OnInit {
-  title = 'angular-frontend';
-  message = '';
+export class MessageComponent {
+  message: string = '';
 
   constructor(private http: HttpClient) {}
 
