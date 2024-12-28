@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,14 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<string>('api/message').subscribe((data) => {
-      this.message = data;
-    })
+    this.http.get<{message: string}>(`${environment.apiUrl}/api/message`).subscribe(
+      (data) => {
+        this.message = data.message;
+        console.log('Message from backend:', data); // Debugging
+      },
+      (error) => {
+        console.error('Error fetching message:', error); // Handle error
+      }
+    );
   }
 }
