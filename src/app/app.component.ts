@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<{message: string}>(`${environment.apiUrl}/api/message`).subscribe(
+    this.http.get<{message: string}>("/api/message").subscribe(
       (data) => {
         this.message = data.message;
         console.log('Message from backend:', data); // Debugging
