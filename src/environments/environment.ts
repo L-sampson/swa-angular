@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'auzre.com'
+    apiUrl: 'https://messageme-demo-api.azurewebsites.net'
 };
